@@ -1,0 +1,22 @@
+name: lucky_realworld
+version: 0.1.0
+
+authors:
+  - Harry Bachrach <harry@docsend.com>
+
+targets:
+  lucky_realworld:
+    main: src/lucky_realworld.cr
+
+crystal: 0.27.0
+
+dependencies:
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 0.12
+  authentic:
+    github: luckyframework/authentic
+    version: ~> 0.2
+  carbon:
+    github: luckyframework/carbon
+    version: ~> 0.1.0
