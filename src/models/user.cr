@@ -5,6 +5,8 @@ class User < BaseModel
   table :users do
     column email : String
     column encrypted_password : String
+    column username : String
+    column bio : String?
   end
 
   def emailable
