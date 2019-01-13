@@ -4,10 +4,11 @@ class SignUpForm < User::BaseForm
 
   fillable email
   virtual password : String
-  virtual password_confirmation : String
+  fillable username
 
   def prepare
     validate_uniqueness_of email
+    validate_required username
     run_password_validations
     Authentic.copy_and_encrypt password, to: encrypted_password
   end
