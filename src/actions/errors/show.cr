@@ -6,6 +6,14 @@ class Errors::Show < Lucky::ErrorAction
     json Errors::ShowSerializer.new(message), status: 400
   end
 
+  def handle_error(error : LuckyRecord::InvalidFormError)
+    json({ errors: error.form.errors }, status: 400)
+  end
+
+  def handle_error(error : Lucky::Exceptions::MissingNestedParam)
+    json Errors::ShowSerializer.new("Malformed parameters"), status: 400
+  end
+
   def handle_error(error : Lucky::RouteNotFoundError)
     json Errors::ShowSerializer.new("Not found"), status: 404
   end
