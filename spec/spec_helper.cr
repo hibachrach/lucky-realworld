@@ -12,5 +12,5 @@ require "./setup/**"
 
 include Carbon::Expectations
 
-LuckyRecord::Migrator::Runner.new.ensure_migrated!
+Avram::Migrator::Runner.new.ensure_migrated!
 Habitat.raise_if_missing_settings!

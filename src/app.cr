@@ -15,11 +15,9 @@ require "../config/env"
 require "../config/**"
 require "../db/migrations/**"
 
-class App
-  private getter server
-
-  def initialize
-    @server = HTTP::Server.new [
+class App < Lucky::BaseApp
+  def middleware
+    [
       Lucky::HttpMethodOverrideHandler.new,
       Lucky::LogHandler.new,
 
@@ -33,26 +31,5 @@ class App
       # Lucky::StaticFileHandler.new("./public", false),
       Lucky::RouteNotFoundHandler.new,
     ]
-  end
-
-  def base_uri
-    "http://#{host}:#{port}"
-  end
-
-  def host
-    Lucky::Server.settings.host
-  end
-
-  def port
-    Lucky::Server.settings.port
-  end
-
-  def listen
-    server.bind_tcp host, port
-    server.listen
-  end
-
-  def close
-    server.close
   end
 end

@@ -6,7 +6,7 @@ class Errors::Show < Lucky::ErrorAction
     json Errors::ShowSerializer.new(message), status: 400
   end
 
-  def handle_error(error : LuckyRecord::InvalidFormError)
+  def handle_error(error : Avram::InvalidFormError)
     json({ errors: error.form.errors }, status: 400)
   end
 
