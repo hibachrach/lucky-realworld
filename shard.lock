@@ -36,6 +36,10 @@ shards:
     github: luckyframework/dexter
     version: 0.1.0
 
+  dotenv:
+    github: gdotdesign/cr-dotenv
+    version: 0.2.0
+
   exception_page:
     github: crystal-loot/exception_page
     version: 0.1.2
