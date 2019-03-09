@@ -8,3 +8,5 @@ yarn-error.log
 server
 *.dwarf
 *.local.cr
+.env
+/tmp/
