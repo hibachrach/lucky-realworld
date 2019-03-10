@@ -7,7 +7,7 @@ class Errors::Show < Lucky::ErrorAction
   end
 
   def handle_error(error : Avram::InvalidFormError)
-    json({ errors: error.form.errors }, status: 400)
+    json({ errors: error.form.errors }, status: 422)
   end
 
   def handle_error(error : Lucky::Exceptions::MissingNestedParam)
