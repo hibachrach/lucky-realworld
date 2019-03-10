@@ -18,6 +18,10 @@ class Errors::Show < Lucky::ErrorAction
     json Errors::ShowSerializer.new("Not found"), status: 404
   end
 
+  def handle_error(error : Auth::RequireSignIn::UnauthorizedError)
+    json Errors::ShowSerializer.new("Unauthorized"), status: 401
+  end
+
   def handle_error(error : Exception)
     error.inspect_with_backtrace(STDERR)
 
