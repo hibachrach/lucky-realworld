@@ -6,7 +6,7 @@ shards:
 
   avram:
     github: luckyframework/avram
-    version: 0.9.3
+    commit: 6c71a104cdc7a97a5e5c4f289234d9f5a372ede9
 
   blank:
     github: kostya/blank

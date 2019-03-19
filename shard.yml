@@ -14,6 +14,9 @@ dependencies:
   lucky:
     github: luckyframework/lucky
     branch: master
+  avram:
+    github: luckyframework/avram
+    branch: master
   authentic:
     github: luckyframework/authentic
     version: ~> 0.2
