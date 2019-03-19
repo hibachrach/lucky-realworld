@@ -34,7 +34,7 @@ shards:
 
   dexter:
     github: luckyframework/dexter
-    version: 0.1.0
+    version: 0.1.1
 
   dotenv:
     github: gdotdesign/cr-dotenv
@@ -54,7 +54,7 @@ shards:
 
   lucky:
     github: luckyframework/lucky
-    version: 0.13.3
+    commit: 580b28df1b283b9c0b8d989d255070443cc2e782
 
   lucky_cli:
     github: luckyframework/lucky_cli
