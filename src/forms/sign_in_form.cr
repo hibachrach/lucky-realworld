@@ -1,5 +1,4 @@
 class SignInForm < Avram::VirtualForm
-  include Authentic::FormHelpers
   include FindAuthenticatable
 
   virtual email : String
@@ -13,13 +12,26 @@ class SignInForm < Avram::VirtualForm
   #    if user.locked?
   #      email.add_error "is locked out"
   #    end
-  private def validate(user : User?)
+  private def validate_credentials(user : User?)
     if user
       unless Authentic.correct_password?(user, password.value.to_s)
         password.add_error "is wrong"
       end
     else
       email.add_error "is not in our system"
+    end
+  end
+
+  def submit! : User
+    validate_required(email)
+    validate_required(password)
+    user = find_authenticatable
+    validate_credentials(user)
+
+    if user && valid?
+      user
+    else
+      raise Avram::InvalidFormError.new(form: self)
     end
   end
 end
