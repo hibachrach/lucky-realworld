@@ -3,10 +3,15 @@ class AddPropertiesToUser::V20190106012749 < Avram::Migrator::Migration::V1
     alter :users do
       add username : String, fill_existing_with: "Irrelevant as there are no users"
       add bio : String?
+      add image : String?
     end
   end
 
   def rollback
-    # drop :things
+    alter :users do
+      remove :username
+      remove :bio
+      remove :image
+    end
   end
 end

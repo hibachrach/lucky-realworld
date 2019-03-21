@@ -7,6 +7,7 @@ class User < BaseModel
     column encrypted_password : String
     column username : String
     column bio : String?
+    column image : String?
   end
 
   def emailable
