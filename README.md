@@ -15,3 +15,34 @@ Note that *this project is still in active development*!
 ### Learning Lucky
 
 Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can learn about Lucky from the [Lucky Guides](http://luckyframework.org/guides).
+
+
+### Progress
+
+- [x] Authentication
+- [x] Registration
+- [x] Get Current User
+- [x] Update User
+- [ ] Get Profile
+- [ ] Follow user
+- [ ] Unfollow user
+- [ ] Create Article
+- [ ] List Articles
+  - [ ] Filter by tag
+  - [ ] Filter by author
+  - [ ] Filter by user
+  - [ ] Favorited by user
+  - [ ] Limit number of articles (default is 20)
+  - [ ] Offset/skip number of articles (default is 0)
+- [ ] Feed Articles
+  - [ ] Limit number of articles (default is 20)
+  - [ ] Offset/skip number of articlse (default is 0)
+- [ ] Get Article
+- [ ] Update Article
+- [ ] Delete Article
+- [ ] Add Comments to an Article
+- [ ] Get Comments from an Article
+- [ ] Delete Comment
+- [ ] Favorite Article
+- [ ] Unfavorite Article
+- [ ] Get Tags
