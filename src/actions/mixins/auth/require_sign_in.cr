@@ -22,9 +22,9 @@ module Auth::RequireSignIn
 
   private def current_user? : User?
     if jwt = jwt_from_header
-      payload, _header = JWT.decode(jwt, Lucky::Server.secret_key_base, "HS256")
-      if id = payload["id"]?
-        User::BaseQuery.new.find(id)
+      payload, _header = JWT.decode(jwt, Lucky::Server.settings.secret_key_base, "HS256")
+      if id = payload["id"]?.try(&.as_i)
+        User::BaseQuery.new.id(id).first?
       end
     end
   rescue JWT::DecodeError
