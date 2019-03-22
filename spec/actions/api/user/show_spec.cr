@@ -47,7 +47,7 @@ describe Api::User::Show do
   end
 
   context "when not signed in" do
-    it "responds with serialized user info" do
+    it "responds unauthorized" do
       create_user.call
       response = client.get(path: Api::User::Show.url)
       response.status_code.should eq(401)
