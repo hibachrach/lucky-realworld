@@ -22,8 +22,9 @@ logger =
     )
   else
     # For development, log everything to STDOUT with the pretty formatter.
+    FileUtils.mkdir_p("tmp")
     Dexter::Logger.new(
-      io: STDOUT,
+      io: File.new("tmp/dev.log", mode: "w"),
       level: Logger::Severity::DEBUG,
       log_formatter: Lucky::PrettyLogFormatter
     )
