@@ -23,7 +23,7 @@ Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can
 - [x] Registration
 - [x] Get Current User
 - [x] Update User
-- [ ] Get Profile
+- [x] Get Profile
 - [ ] Follow user
 - [ ] Unfollow user
 - [ ] Create Article
