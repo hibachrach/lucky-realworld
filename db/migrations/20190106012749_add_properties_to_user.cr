@@ -1,7 +1,7 @@
 class AddPropertiesToUser::V20190106012749 < Avram::Migrator::Migration::V1
   def migrate
     alter :users do
-      add username : String, fill_existing_with: "Irrelevant as there are no users"
+      add username : String, fill_existing_with: "Irrelevant as there are no users", index: true, unique: true
       add bio : String?
       add image : String?
     end

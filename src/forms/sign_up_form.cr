@@ -8,6 +8,7 @@ class SignUpForm < User::BaseForm
 
   def prepare
     validate_uniqueness_of email
+    validate_uniqueness_of username
     validate_required username
     run_password_validations
     Authentic.copy_and_encrypt password, to: encrypted_password
