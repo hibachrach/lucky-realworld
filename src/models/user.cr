@@ -8,6 +8,8 @@ class User < BaseModel
     column username : String
     column bio : String?
     column image : String?
+    has_many followers : User, through: :follows
+    has_many followed : User, through: :follows
   end
 
   def emailable
