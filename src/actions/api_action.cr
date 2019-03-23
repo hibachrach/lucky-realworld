@@ -1,4 +1,12 @@
 abstract class ApiAction < Lucky::Action
+  before set_cors_headers
+
+  def set_cors_headers
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range"
+    continue
+  end
+
   # Include modules and add methods that are for all API requests
   macro nested_param(type_declaration, nested_under parent_param_key)
     def {{ type_declaration.var }} : {{ type_declaration.type }}

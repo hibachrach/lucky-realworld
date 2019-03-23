@@ -14,6 +14,7 @@ require "./actions/**"
 require "./services/**"
 require "../config/env"
 require "../config/**"
+require "../options_request_handler"
 require "../db/migrations/**"
 
 class App < Lucky::BaseApp
@@ -26,6 +27,7 @@ class App < Lucky::BaseApp
       # Lucky::SessionHandler.new,
       # Lucky::FlashHandler.new,
       Lucky::ErrorHandler.new(action: Errors::Show),
+      OptionsRequestHandler.new(OptionsAction),
       Lucky::RouteHandler.new,
 
       # Disabled in API mode:
