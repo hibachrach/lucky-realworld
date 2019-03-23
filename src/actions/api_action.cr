@@ -3,7 +3,8 @@ abstract class ApiAction < Lucky::Action
 
   def set_cors_headers
     response.headers["Access-Control-Allow-Origin"] = "*"
-    response.headers["Access-Control-Allow-Headers"] = "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range"
+    response.headers["Access-Control-Allow-Methods"] = "GET,POST,PUT,OPTIONS,DELETE"
+    response.headers["Access-Control-Allow-Headers"] = "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
     continue
   end
 
