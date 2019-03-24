@@ -21,7 +21,7 @@ class HTTPClient < Lucky::BaseHTTPClient
 
   {% for method in [:put, :patch, :post] %}
 
-    def {{method.id}}(path : String, body : Object, headers : HTTP::Headers? = nil)
+    def {{method.id}}(path : String, body : Object? = nil, headers : HTTP::Headers? = nil)
       body = body.try(&.to_json)
       @client.{{method.id}}(path, headers: add_persistent_headers(headers), body: body)
     end
