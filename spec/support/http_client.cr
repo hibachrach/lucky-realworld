@@ -28,6 +28,12 @@ class HTTPClient < Lucky::BaseHTTPClient
 
   {% end %}
 
+  def delete(path : String, headers : HTTP::Headers? = nil, params : Object? = nil)
+    body = params.try(&.to_json)
+    @client.delete(path, headers: add_persistent_headers(headers), body: body)
+  end
+
+
   private def add_persistent_headers(headers : HTTP::Headers? = nil)
     headers = headers.dup || HTTP::Headers.new
     headers.merge!(persistent_headers)
